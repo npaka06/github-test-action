@@ -5,7 +5,7 @@ inputs:
   who-to-greet:  # id of input
     description: 'Who to greet'
     required: true
-    default: 'World'
+    default: 'Naveen PK'
 outputs:
   random-number: 
     description: "Random number"
@@ -18,5 +18,4 @@ runs:
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
-    - run: ${{ github.action_path }}/goodbye.sh
-      shell: bash
+
