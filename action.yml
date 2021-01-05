@@ -5,17 +5,11 @@ inputs:
   who-to-greet:  # id of input
     description: 'Who to greet'
     required: true
-    default: 'Naveen PK'
-outputs:
-  random-number: 
-    description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-id }}
+    default: 'Navin'
+
 runs:
   using: "composite"
   steps: 
-    - run: echo Hello ${{ inputs.who-to-greet }}.
-      shell: bash
-    - id: random-number-generator
-      run: echo "::set-output name=random-id::$(echo $RANDOM)"
+    - run: echo welcome MR ${{ inputs.who-to-greet }}.
       shell: bash
 
