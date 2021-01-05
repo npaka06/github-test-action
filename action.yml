@@ -1,11 +1,22 @@
 name: 'github-test-action'
 description: 'Testing created github action'
 
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+outputs:
+  random-number: 
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
   steps: 
-    steps:
-    - name: Echo
+    - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
-      run: |
-        echo Heyyyyy Naveen
+    - id: random-number-generator
+      run: echo "::set-output name=random-id::$(echo $RANDOM)"
+      shell: bash
+    - run: ${{ github.action_path }}/goodbye.sh
+      shell: bash
