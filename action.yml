@@ -1,0 +1,10 @@
+name: 'github-test-action'
+description: 'Testing created github action'
+
+jobs:
+  test-build-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v1
+      - run: npm install -g bats
+      - run: echo hello
